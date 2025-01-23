@@ -1,0 +1,34 @@
+****Chuẩn bị môi trường và cài đặt 
+- B1: Cài đặt Node.js và npm
+- B2: Cài đặt Nest CLI: npm install -g @nestjs/cli
+- B3: Tạo dự án: nest new + tên dự án
+- B4: Chạy dự án: npm run start dev
+
+****Cấu trúc dự án nestjs
+- src/ : thư mục chính của dự án
+    + main.ts : File khởi chạy ứng dụng
+    + app.module.ts : Module gốc của ứng dụng
+    + app.controller.ts : Định nghĩa các route cơ bản
+    + app.service.ts : Xử lý logic nghiệp vụ
+    - modules/ : Các module chức năng của ứng dụng
+        + user/ : vd module user (tạo module: nest generate module + tên module)
+            + user.module.ts
+            + user.controller.ts
+            + user.service.ts
+            + dto/ : Các Data Transfer Object (DTO)
+    - common/ : Các filr dùng chung (interceptor, guards, pipes)
+    - config/ : File cấu hình cho môi trường (dev, prod)
+    - entities/ : Các định nghĩa entity cho database
+    - utils/ : Các utility/helper functions
+
+****Kiến trúc dự án nestjs
+- Kiến trúc Modular và sử dụng mô hình MVC phổ biến. Nó chia ứng dụng thành các module nhỏ, giúp tổ chức code rõ ràng, dễ bảo trì và mở rộng.
+- Thành phần chính trong nestjs:
+    + Module: Chia ứng dụng thành các khối logic riêng biệt
+    + Controller: Xử lý các yêu cầu HTTP (route và endpoint)
+    + Service: Chứa logic nghiệp vụ của ứng dụng
+    + Provider: CUng cấp dịch vụ (Service, Repository,...) thông qua Dependency Injection
+    + Decorator: Các annotation da9885c biệt giúp định nghĩa logic như @Controller, @Module, @Injectable
+
+****Dependency Injection trong Nestjs
+- Nestjs sử dũng Dependency Injection để quản lý các service và provider 1 cách tự động
