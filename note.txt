@@ -30,5 +30,14 @@
     + Provider: CUng cấp dịch vụ (Service, Repository,...) thông qua Dependency Injection
     + Decorator: Các annotation da9885c biệt giúp định nghĩa logic như @Controller, @Module, @Injectable
 
-****Dependency Injection trong Nestjs
+****Service và Dependency Injection trong Nestjs
 - Nestjs sử dũng Dependency Injection để quản lý các service và provider 1 cách tự động
+- Service thường được inject vào COntroller thông qua Dependency Injection (Cần import vào provider)
+- @Injectable() là decorator đánh dấu class này có thể được inject vào nơi khác
+- Dependency Injection là kỹ thuật mà một class nhận phụ thuộc từ bên ngoài thay vì tự tạo
+- Scope của Provider trong Dependency Injection:
+    + Singleton(mặc định): chỉ được khởi tạo 1 lần duy nhất trong vòng đời của ứng dụng
+    + Request Scope: Service được tạo mới mỗi khi có request mới
+        vd: @Injectable({scope: Scope.REQUEST})
+    + Transient Scope: Service được tạo mới mỗi khi nó được inject vào 1 class khác
+        vd: vd: @Injectable({scope: Scope.TRANSIENT})
