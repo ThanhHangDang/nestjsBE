@@ -41,3 +41,28 @@
         vd: @Injectable({scope: Scope.REQUEST})
     + Transient Scope: Service được tạo mới mỗi khi nó được inject vào 1 class khác
         vd: vd: @Injectable({scope: Scope.TRANSIENT})
+
+****Routing và Controller
+- Mỗi route được định nghĩa trong controller
+- @Get
+- @Post 
+- @Push : cập nhật theo kiểu ghi đè
+- @Delete
+- @Patch : chỉ cập nhật thông tin gửi lên
+
+- Định nghĩa Router động và tham số (Params): Dùng @Param
+- Xử lý Query Parameters: Dùng @Query
+- Xử lý Body với @Post() : Dùng @Body
+
+- Tổ chức route với prefix
+
+****Làm việc với Database (TypeORM) trong NestJS
+- TypeORM là 1 ORM (Object Relational Mapping) cho phép tương tác với cơ sở dữ liệu thông qua các class và object thay vì viết trực tiếp câu lệnh SQL
+- Hỗ trợ PostgreSQL, MySQL, SQLite, SQL Server,...
+- Cài đặt:
+    + npm install @nestjs/typeorm typeorm mysql2
+
+- Cấu hình kết nối TypeORM
+- Tạo Entity
+- Repository: nơi thực hiện các thao tác với database như CRUD
+    + Gọi trong service
