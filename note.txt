@@ -66,3 +66,9 @@
 - Tạo Entity
 - Repository: nơi thực hiện các thao tác với database như CRUD
     + Gọi trong service
+
+****Xử lý lỗi và Validation
+- Cài thư viện class-validator và class-transformer để đảm bảo dữ liệu gửi lên hợp lệ
+    + npm install class-validator class-transformer
+
+- Tạo các DTO
