@@ -72,3 +72,10 @@
     + npm install class-validator class-transformer
 
 - Tạo các DTO
+
+****Validation và Middleware trong NestJS
+- Validation: Đảm bảo dữ liệu đầu vào của API hợp lệ trước khi xử lý. Giúp ngăn chặn các lỗi không mong muốn hoặc dữ liệu không hợp lệ đi vào hệ thống
+- Middleware: Là các hàm trung gian được thực thi trong quá trình request/response trước khi dữ liệu đến Controller
+    + Ghi log
+    + Kiểm tra request (ví dụ: xác thực token)
+    + Thêm thông tin vào request
