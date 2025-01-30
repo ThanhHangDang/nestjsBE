@@ -6,6 +6,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './modules/user/user.entity';
 import { ProductsModule } from './modules/products/products.module';
 import { Product } from './entities/Product';
+import { MiddlewareConsumer, RequestMethod } from '@nestjs/common';
+import { LoggingMiddleware } from './middleware/logging/logging.middleware';
+import { RoleMiddleware } from './middleware/role/role.middleware';
 
 @Module({
   imports: [
@@ -25,4 +28,19 @@ import { Product } from './entities/Product';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggingMiddleware, RoleMiddleware).forRoutes(
+      {
+        path: '/products/*',
+        method: RequestMethod.ALL,
+      },
+      {
+        path: '/products',
+        method: RequestMethod.ALL,
+      },
+    );
+
+    // consumer.apply(RoleMiddleware).forRoutes('*');
+  }
+}

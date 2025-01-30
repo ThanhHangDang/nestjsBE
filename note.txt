@@ -79,3 +79,8 @@
     + Ghi log
     + Kiểm tra request (ví dụ: xác thực token)
     + Thêm thông tin vào request
+    + Tạo middleware: nest generate middleware + tên
+    + Sử dụng (2 cách):
+        + Gọi toàn bộ: gọi trực tiếp trong main.ts
+        + Gọi trong 1 module cụ thể
+    + Middleware chạy theo thứ tự khai báo

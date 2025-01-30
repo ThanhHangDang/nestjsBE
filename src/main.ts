@@ -5,9 +5,12 @@ import {
   BadRequestException,
   ValidationError,
 } from '@nestjs/common';
+import { LoggingMiddleware } from './middleware/logging/logging.middleware';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  // app.use(new LoggingMiddleware().use);
+
   app.useGlobalPipes(
     new ValidationPipe({
       exceptionFactory: (validationErrors: ValidationError[] = []) => {

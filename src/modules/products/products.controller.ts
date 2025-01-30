@@ -9,6 +9,7 @@ import {
   HttpException,
   HttpStatus,
   UsePipes,
+  Req,
   // ValidationPipe,
   BadRequestException,
   ValidationError,
@@ -56,7 +57,8 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Get()
-  findAll() {
+  findAll(@Req() req: Request & { user: String }) {
+    console.log(req.user);
     return this.productsService.findAll();
   }
 
